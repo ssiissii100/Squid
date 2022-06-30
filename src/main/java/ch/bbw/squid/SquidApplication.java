@@ -12,6 +12,6 @@ public class SquidApplication {
     public static void main(String[] args) {
         SpringApplication.run(SquidApplication.class, args);
         connectionDB = new ConnectionDB("localhost", "squid_users", "root", "", 3306);
-
+        Hasher hashgen = new Hasher();
     }
 }
