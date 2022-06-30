@@ -1,51 +1,61 @@
 package ch.bbw.squid;
 
 public enum Questions {
-    KINAESTHETIC1(""),
-    KINAESTHETIC2(""),
-    KINAESTHETIC3(""),
-    KINAESTHETIC4(""),
-    KINAESTHETIC5(""),
-    LINGUISTIC1(""),
-    LINGUISTIC2(""),
-    LINGUISTIC3(""),
-    LINGUISTIC4(""),
-    LINGUISTIC5(""),
-    NATURALISTIC1(""),
-    NATURALISTIC2(""),
-    NATURALISTIC3(""),
-    NATURALISTIC4(""),
-    NATURALISTIC5(""),
-    VISUAL1(""),
-    VISUAL2(""),
-    VISUAL3(""),
-    VISUAL4(""),
-    VISUAL5(""),
-    MUSICAL1(""),
-    MUSICAL2(""),
-    MUSICAL3(""),
-    MUSICAL4(""),
-    MUSICAL5(""),
-    INTRAPERSONAL1(""),
-    INTRAPERSONAL2(""),
-    INTRAPERSONAL3(""),
-    INTRAPERSONAL4(""),
-    INTRAPERSONAL5(""),
-    INTERPERSONAL1(""),
-    INTERPERSONAL2(""),
-    INTERPERSONAL3(""),
-    INTERPERSONAL4(""),
-    INTERPERSONAL5(""),
-    LOGICAL1(""),
-    LOGICAL2(""),
-    LOGICAL3(""),
-    LOGICAL4(""),
-    LOGICAL5("");
+    KINAESTHETIC1("", 1),
+    KINAESTHETIC2("", 1),
+    KINAESTHETIC3("", 1),
+    KINAESTHETIC4("", 1),
+    KINAESTHETIC5("", 1),
+    LINGUISTIC1("", 2),
+    LINGUISTIC2("", 2),
+    LINGUISTIC3("", 2),
+    LINGUISTIC4("", 2),
+    LINGUISTIC5("", 2),
+    NATURALISTIC1("", 3),
+    NATURALISTIC2("", 3),
+    NATURALISTIC3("", 3),
+    NATURALISTIC4("", 3),
+    NATURALISTIC5("", 3),
+    VISUAL1("", 4),
+    VISUAL2("", 4),
+    VISUAL3("", 4),
+    VISUAL4("", 4),
+    VISUAL5("", 4),
+    MUSICAL1("", 5),
+    MUSICAL2("", 5),
+    MUSICAL3("", 5),
+    MUSICAL4("", 5),
+    MUSICAL5("", 5),
+    INTRAPERSONAL1("", 6),
+    INTRAPERSONAL2("", 6),
+    INTRAPERSONAL3("", 6),
+    INTRAPERSONAL4("", 6),
+    INTRAPERSONAL5("", 6),
+    INTERPERSONAL1("", 7),
+    INTERPERSONAL2("", 7),
+    INTERPERSONAL3("", 7),
+    INTERPERSONAL4("", 7),
+    INTERPERSONAL5("", 7),
+    LOGICAL1("", 8),
+    LOGICAL2("", 8),
+    LOGICAL3("", 8),
+    LOGICAL4("", 8),
+    LOGICAL5("", 8);
 
 
     private final String question;
-    
-    Questions(String question) {
+    private final int type;
+
+    Questions(String question, int type) {
         this.question = question;
+        this.type = type;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public int Type() {
+        return type;
     }
 }
