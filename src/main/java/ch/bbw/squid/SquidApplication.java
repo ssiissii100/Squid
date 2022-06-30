@@ -10,4 +10,6 @@ public class SquidApplication {
         SpringApplication.run(SquidApplication.class, args);
     }
 
+    ConnectionDB dbcon = new ConnectionDB();
+
 }
