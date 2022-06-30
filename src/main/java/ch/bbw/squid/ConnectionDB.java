@@ -23,7 +23,6 @@ public class ConnectionDB {
     private boolean connect(String host, String database, String username, String password, int port) {
         try {
 
-
             this.connection = DriverManager.getConnection(
                     "jdbc:mariadb://" + host + ":" + port +"/",
                     username, password
@@ -58,6 +57,5 @@ public class ConnectionDB {
         }
         return false;
     }
-
 }
 
