@@ -1,31 +1,63 @@
 package ch.bbw.squid;
-
+import lombok.Getter;
 import java.sql.*;
-import java.util.Properties;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ConnectionDB {
 
-    static final String url = "jdbc:mariadb://localhost:3306/squid_users";
-    static final String user = "root";
-    static final String password = "";
-    static final String query = "SELECT * FROM user";
+    private Connection connection;
 
-    public static void main(String[] args) {
-        // Open a connection
+    @Getter
+    private final ExecutorService pool = Executors.newCachedThreadPool();
 
-        try (Connection conn = DriverManager.getConnection(url, user, password)) {
-            Statement stmt = ((java.sql.Connection) conn).createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            // Extract data from result set
-            while (rs.next()) {
-                // Retrieve by column name
-                System.out.print("UserID: " + rs.getInt("user_id"));
-                System.out.print(", Username: " + rs.getString("username"));
-                System.out.print(", Passwordhash: " + rs.getString("password_hash"));
-                System.out.println(", Created: " + rs.getDate("created"));
-            }
+    public ConnectionDB(String host, String database, String username, String password, int port) {
+        System.out.println("Connecting to database " + database + "...");
+        if (this.connect(host, database, username, password, port)) {
+            System.out.println("Successfully connected to database " + database + "!");
+            return;
+        }
+        System.out.println("Can't connect to " + database + "! Shutting down...");
+    }
+
+    private boolean connect(String host, String database, String username, String password, int port) {
+        try {
+
+
+            this.connection = DriverManager.getConnection(
+                    "jdbc:mariadb://" + host + ":" + port +"/",
+                    username, password
+            );
+        } catch (Exception e) {
+            System.out.println("Connection error! (DB: " + database + ")");
+            e.printStackTrace();
+        }
+        return this.isConnected();
+    }
+
+    public boolean disconnect() {
+        if (!this.isConnected()) {
+            return true;
+        }
+
+        try {
+            this.connection.close();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Can't close connection!");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean isConnected() {
+        try {
+            return this.connection != null && !this.connection.isClosed();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
+
 }
+
