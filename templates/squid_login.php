@@ -37,16 +37,13 @@
   </form>
     
   <h1 style="font-size: 30px;margin-bottom:30px"> Login </h1>
-
-  <form action="#">
-
-    <span style="margin-right:50px">Username</span>
+ <form action="#">
+      <span style="margin-right:50px">Username</span>
     <input type="text" placeholder="Username" required>
     <span style="margin-right:60px">Passwort</span>
     <input type="text" placeholder="Passwort" required>
     <input type="submit" value="Login">
   </form>
-
 
 <footer>
 </footer>

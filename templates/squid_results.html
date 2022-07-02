@@ -6,6 +6,7 @@
   <link href="../rescources/static/css/squid_animejs.css" rel="stylesheet">
   <link href="../rescources/static/css/squid_website.css" rel="stylesheet">
   <link href="../rescources/static/css/style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Squid</title>
 </head>
 <body>
@@ -24,16 +25,42 @@
 
 
 <div class="feature-section">
-  <h1>Welcher intelligenztyp bist du?</h1>
-  <ul>
-    <li><a href="test">Take the test!</a></li>
-    <li><a href="types">See Intelligence Types</a></li>
-  </ul>
-  <br>
-  <img src="../rescources/static/img/squid_logo.png" height="1000" alt="Squid Logo"/>
+    <canvas id="myChart"></canvas>
 </div>
 
 <footer>
 </footer>
+<script>
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
 </body>
 </html>
