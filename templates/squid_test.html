@@ -6,6 +6,12 @@
   <link href="../rescources/static/css/squid_animejs.css" rel="stylesheet">
   <link href="../rescources/static/css/squid_website.css" rel="stylesheet">
   <link href="../rescources/static/css/style.css" rel="stylesheet">
+  <link href="../rescources/static/css/quiz.css" rel="stylesheet">
+  <!-- -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+  <script src="./rescources/static/js/quiz.js"></script>
+  <!-- -->
   <title>Squid</title>
 </head>
 <body>
@@ -14,26 +20,189 @@
     <a href="squid_index.html" class="top-header primary"><h1>Squid - Intelligence Type Test</h1></a>
     <img src="../rescources/static/img/squid_logo.png" height="100" alt="Squid Logo"/>
     <nav class="nav-menu">
-      <a class="nav-link" href="test">Test</a>
-      <a class="nav-link" href="results">Resultat</a>
-      <a class="nav-link" href="contactus">Kontakt</a>
-      <a class="main-cta" href="login" style="opacity: 1; transition: transform 0.225s ease 0s;">Login</a>
+      <a class="nav-link" href="squid_test.html">Test</a>
+      <a class="nav-link" href="squid_results.html">Resultat</a>
+      <a class="nav-link" href="squid_contactus.html">Kontakt</a>
+      <a class="main-cta" href="squid_login.php" style="opacity: 1; transition: transform 0.225s ease 0s;">Login</a>
     </nav>
   </div>
 </header>
 
+<div id="emc-score"></div>
+<div class="wrap">
+  <div class="row">
+  <section data-quiz-item>
+    <div class="question">Ich bin ein Ass im Multitasking.</div>
+    <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+      <input id="0_0" name="0" type="radio">
+      <label for="0_0">1</label>
+      <input name="0" id="0_1" type="radio">
+      <label for="0_1">2</label>
+      <input name="0" id="0_2" type="radio">
+      <label for="0_2">3</label>
+      <input name="0" id="0_3" type="radio">
+      <label for="0_3">4</label>
+      <input name="0" id="0_4" type="radio">
+      <label for="0_4">5</label>
+      <input name="0" id="0_5" type="radio">
+      <label for="0_5">6</label>
+    </div>
+  </section>
+  <section data-quiz-item>
+    <div class="question">Meine Reaktionszeit ist höher als bei andern.</div>
+    <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+      <input id="1_0" name="1" type="radio">
+      <label for="1_0">1</label>
+      <input name="1" id="1_1" type="radio">
+      <label for="1_1">2</label>
+      <input name="1" id="1_2" type="radio">
+      <label for="1_2">3</label>
+      <input name="1" id="1_3" type="radio">
+      <label for="1_3">4</label>
+      <input name="1" id="1_4" type="radio">
+      <label for="1_4">5</label>
+      <input name="1" id="1_5" type="radio">
+      <label for="1_5">6</label>
+    </div>
+  </section>
+  </div>
 
-<div class="feature-section">
-  <h1>Welcher intelligenztyp bist du?</h1>
-  <ul>
-    <li><a href="test">Take the test!</a></li>
-    <li><a href="types">See Intelligence Types</a></li>
-  </ul>
-  <br>
-  <img src="../rescources/static/img/squid_logo.png" height="1000" alt="Squid Logo"/>
+  <div class="row">
+    <section data-quiz-item>
+      <div class="question">Ich bin ein Ass im Multitasking.</div>
+      <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+        <input id="0_0" name="0" type="radio">
+        <label for="0_0">1</label>
+        <input name="0" id="0_1" type="radio">
+        <label for="0_1">2</label>
+        <input name="0" id="0_2" type="radio">
+        <label for="0_2">3</label>
+        <input name="0" id="0_3" type="radio">
+        <label for="0_3">4</label>
+        <input name="0" id="0_4" type="radio">
+        <label for="0_4">5</label>
+        <input name="0" id="0_5" type="radio">
+        <label for="0_5">6</label>
+      </div>
+    </section>
+    <section data-quiz-item>
+      <div class="question">Meine Reaktionszeit ist höher als bei andern.</div>
+      <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+        <input id="1_0" name="1" type="radio">
+        <label for="1_0">1</label>
+        <input name="1" id="1_1" type="radio">
+        <label for="1_1">2</label>
+        <input name="1" id="1_2" type="radio">
+        <label for="1_2">3</label>
+        <input name="1" id="1_3" type="radio">
+        <label for="1_3">4</label>
+        <input name="1" id="1_4" type="radio">
+        <label for="1_4">5</label>
+        <input name="1" id="1_5" type="radio">
+        <label for="1_5">6</label>
+      </div>
+    </section>
+    </div>
+
+    <div class="row">
+      <section data-quiz-item>
+        <div class="question">Ich bin ein Ass im Multitasking.</div>
+        <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+          <input id="0_0" name="0" type="radio">
+          <label for="0_0">1</label>
+          <input name="0" id="0_1" type="radio">
+          <label for="0_1">2</label>
+          <input name="0" id="0_2" type="radio">
+          <label for="0_2">3</label>
+          <input name="0" id="0_3" type="radio">
+          <label for="0_3">4</label>
+          <input name="0" id="0_4" type="radio">
+          <label for="0_4">5</label>
+          <input name="0" id="0_5" type="radio">
+          <label for="0_5">6</label>
+        </div>
+      </section>
+      <section data-quiz-item>
+        <div class="question">Meine Reaktionszeit ist höher als bei andern.</div>
+        <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+          <input id="1_0" name="1" type="radio">
+          <label for="1_0">1</label>
+          <input name="1" id="1_1" type="radio">
+          <label for="1_1">2</label>
+          <input name="1" id="1_2" type="radio">
+          <label for="1_2">3</label>
+          <input name="1" id="1_3" type="radio">
+          <label for="1_3">4</label>
+          <input name="1" id="1_4" type="radio">
+          <label for="1_4">5</label>
+          <input name="1" id="1_5" type="radio">
+          <label for="1_5">6</label>
+        </div>
+      </section>
+      </div>
+
+      <div class="row last">
+        <section data-quiz-item>
+          <div class="question">Ich bin ein Ass im Multitasking.</div>
+          <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+            <input id="0_0" name="0" type="radio">
+            <label for="0_0">1</label>
+            <input name="0" id="0_1" type="radio">
+            <label for="0_1">2</label>
+            <input name="0" id="0_2" type="radio">
+            <label for="0_2">3</label>
+            <input name="0" id="0_3" type="radio">
+            <label for="0_3">4</label>
+            <input name="0" id="0_4" type="radio">
+            <label for="0_4">5</label>
+            <input name="0" id="0_5" type="radio">
+            <label for="0_5">6</label>
+          </div>
+        </section>
+        <section data-quiz-item>
+          <div class="question">Meine Reaktionszeit ist höher als bei andern.</div>
+          <div class="choices" data-choices='["1", "2", "3", "4", "5", "6"]'>
+            <input id="1_0" name="1" type="radio">
+            <label for="1_0">1</label>
+            <input name="1" id="1_1" type="radio">
+            <label for="1_1">2</label>
+            <input name="1" id="1_2" type="radio">
+            <label for="1_2">3</label>
+            <input name="1" id="1_3" type="radio">
+            <label for="1_3">4</label>
+            <input name="1" id="1_4" type="radio">
+            <label for="1_4">5</label>
+            <input name="1" id="1_5" type="radio">
+            <label for="1_5">6</label>
+          </div>
+        </section>
+        </div>
+
+  <div class="submit">
+  <button id="emc-submit">Submit Answers</button>
+  </div>
 </div>
 
+<!-- <div class="feature-section">
+  <div id="quiz" class="quiz-container quiz-questions-state">
+      <div id="quiz-header">
+        <h1>Quiz</h1>
+        <p class="faded">A quiz about the plugin built by the plugin.</p>
+      </div>
+      <div id="quiz-start-screen">
+        <p><a href="#" id="quiz-start-btn" class="quiz-button">Start</a></p>
+      </div>
+    </div>
+</div> -->
+
 <footer>
+  <div id="emc-progress">
+    <span id="emc-progress_ind">0/8</span>
+    <span id="emc-progress_inner"></span>
+  </div>
 </footer>
+
+
+
 </body>
 </html>
