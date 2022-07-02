@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 30px;
+}
+    
+.People {margin-left: 100px; grid-area: 1 / 1 / 2 / 2; }
+.Logical {margin-left: 250px; grid-area: 1 / 2 / 2 / 3; }
+.Linguistic {margin-top:20px; margin-left: 100px;  grid-area: 2 / 1 / 3 / 2; }
+.Musical{margin-top:20px; margin-left: 250px; grid-area: 2 / 2 / 3 / 3; }
+.Intrapersonal{margin-top:20px; margin-left: 100px;  grid-area: 3 / 1 / 4 / 2; }
+.Visual {margin-top:20px; margin-left: 250px; grid-area: 3 / 2 / 4 / 3; }
+.Naturalistic {margin-top:20px; margin-left: 100px;  grid-area: 4 / 1 / 5 / 2; }
+.Kinesthetic {margin-top:20px; margin-left: 250px; grid-area: 4 / 2 / 5 / 3; }
+
