@@ -16,3 +16,7 @@
 .Naturalistic {margin-top:20px; margin-left: 100px;  grid-area: 4 / 1 / 5 / 2; }
 .Kinesthetic {margin-top:20px; margin-left: 250px; grid-area: 4 / 2 / 5 / 3; }
 
+.chartcontainer{
+    height: 800px;
+    width: 900px;
+}

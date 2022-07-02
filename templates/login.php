@@ -22,33 +22,31 @@
   </div>
 </header>
 
-  <h1 style="font-size: 30px; margin-bottom:30px"> Registration </h1>
+<body>
+<?php
 
-  <form action="#">
-    
-    <span style="margin-right: 20px">Username</span>
-    <input type="text" placeholder="Username" required>
-    <span style="margin-right: 20px" >Passwort</span>
-    <input type="text" placeholder="Passwort" required>
-    <span style="margin-right: 20px">Passwort bestätigen</span>
-    <input type="text" placeholder="Passwort bestätigen" required>
-    <input type="submit" value="Register">
+    $username = $_POST["username"];
+    $password = hash('sha512', $_POST["password"]);
 
-  </form>
-    
-  <h1 style="font-size: 30px;margin-bottom:30px"> Login </h1>
+    //Stellt die verbindung zur DB her
+    $con = mysqli_connect("localhost", "root","", "squid_users");  
+    if(mysqli_connect_errno()) {  
+        die("Failed to connect with MySQL: ". mysqli_connect_error());  
+    }  
 
-  <form action="#">
+    //Übergiebt überprüft ob das password und die username mit den DB Einträgen übereinstimmt
+    $sql = "SELECT * FROM user WHERE username = '$username' AND password_hash = '$password'";
+    $result = mysqli_query($con, $sql);
 
-    <span style="margin-right:50px">Username</span>
-    <input type="text" placeholder="Username" required>
-    <span style="margin-right:60px">Passwort</span>
-    <input type="text" placeholder="Passwort" required>
-    <input type="submit" value="Login">
-  </form>
+    $count=mysqli_num_rows($result);
 
+    if($count > 0){
+        echo"<h1><center> Login erfolgreich</center></h1>";
+        mysqli_close($con);
+    }else{
+        echo"<h1><center> Login fehlgeschlagen</center></h1>";
 
-<footer>
-</footer>
+    }
+?> 
 </body>
 </html>

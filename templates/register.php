@@ -6,7 +6,6 @@
   <link href="../rescources/static/css/squid_animejs.css" rel="stylesheet">
   <link href="../rescources/static/css/squid_website.css" rel="stylesheet">
   <link href="../rescources/static/css/style.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Squid</title>
 </head>
 <body>
@@ -23,44 +22,31 @@
   </div>
 </header>
 
-
 <div class="feature-section">
-    <canvas id="myChart"></canvas>
+  <?php
+    $username = $_POST["username"];
+    $password = hash('sha512', $_POST["password"]);
+    $passwordconfirm = $_POST["passwordconfirm"];
+    
+    //Stellt die Verbindung zur DB her
+    $con = new MySQLi("localhost","root","","squid_users");
+    if($con->connect_error){
+      echo "Fehler bei der Verbindung: " . mysqli_connect_error();
+      exit();
+    }
+
+    if(!$con->set_charset("utf8")){
+        echo"Fehler beim Laden von UTF8".$con->error;
+    }else{
+        echo"<h1><center> Registrierung erfolgreich</center></h1>";
+    }
+    //Fügt die Formulardaten der DB hinzu
+    $sql="INSERT INTO user(`username`, `password_hash`)VALUES('$username','$password')";
+    $result = mysqli_query($con, $sql) or die("Fehler bei Datenbankabfrage.");
+    mysqli_close($con);
+  ?>
 </div>
-
 <footer>
-</footer>
-<script>
-  const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-  ];
-
-  const data = {
-    labels: labels,
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45],
-    }]
-  };
-
-  const config = {
-    type: 'line',
-    data: data,
-    options: {}
-  };
-</script>
-<script>
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
-</script>
+</footer> 
 </body>
 </html>
